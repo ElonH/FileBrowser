@@ -40,16 +40,16 @@ endef
 define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/usr/bin
 ifeq ($(ARCH),i386)
-	$(INSTALL_BIN) ./files/i386 $(1)/usr/bin/filebrowser
+	$(INSTALL_BIN) ./files/i386_387 $(1)/usr/bin/filebrowser
 endif
 ifeq ($(ARCH),x86_64)
-	$(INSTALL_BIN) ./files/x86_64 $(1)/usr/bin/filebrowser
+	$(INSTALL_BIN) ./files/amd64 $(1)/usr/bin/filebrowser
 endif
 ifeq ($(ARCH),arm)
 ifeq ($(BOARD),bcm53xx)
-	 $(INSTALL_BIN) ./files/armv7 $(1)/usr/bin/filebrowser
+	 $(INSTALL_BIN) ./files/arm_7 $(1)/usr/bin/filebrowser
 else
-	 $(INSTALL_BIN) ./files/arm $(1)/usr/bin/filebrowser
+	 $(INSTALL_BIN) ./files/arm_6 $(1)/usr/bin/filebrowser
 endif
 endif
 ifeq ($(ARCH),arm64)
@@ -59,10 +59,10 @@ ifeq ($(ARCH),aarch64)
 	$(INSTALL_BIN) ./files/arm64 $(1)/usr/bin/filebrowser
 endif
 ifeq ($(ARCH),mips)
-	$(INSTALL_BIN) ./files/mips $(1)/usr/bin/filebrowser
+	$(INSTALL_BIN) ./files/mips_softfloat $(1)/usr/bin/filebrowser
 endif
 ifeq ($(ARCH),mipsel)
-	$(INSTALL_BIN) ./files/mipsel $(1)/usr/bin/filebrowser
+	$(INSTALL_BIN) ./files/mipsel_softfloat $(1)/usr/bin/filebrowser
 endif
 endef
 
